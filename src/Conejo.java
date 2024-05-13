@@ -19,15 +19,18 @@ public class Conejo extends Mascota {
     public void alimentar() {
 
         int suerte = rdm.nextInt(0, 2);
-        if (isSalud() || (!isSalud() && suerte == 1)) {
+        if ((isSalud() || (!isSalud() && suerte == 1)) && getAlimentacion() < 100) {
 
             setAlimentacion(getAlimentacion() + 15);
             setHigiene(getHigiene() - 5);
+            Menu.clear();
+            System.out.println(getNombre() + " ha comido");
         } else {
+            Menu.clear();
             System.out.println(getNombre() + " no quiere comer");
             System.out.println(" (\\(\\\n" +
-                    " \t\t\t( “-.-)\n" +
-                    "  \t /   \\ ");
+                    " (“-.-)\n" +
+                    " /   \\ \n ");
         }
     }
 
@@ -35,15 +38,18 @@ public class Conejo extends Mascota {
     public void limpiar() {
 
         int suerte = rdm.nextInt(0, 2);
-        if (isSalud() || (!isSalud() && suerte == 1)) {
+        if ((isSalud() || (!isSalud() && suerte == 1) && getHigiene() < 100)) {
 
             setAlimentacion(getAlimentacion() - 5);
             setHigiene(getHigiene() + 15);
+            Menu.clear();
+            System.out.println(getNombre() + " se ha bañado");
         } else {
+            Menu.clear();
             System.out.println(getNombre() + " no quiere bañarse");
             System.out.println(" /)/)\n" +
-                    " \t\t\t(-.-“ )\n" +
-                    "  \t  /   \\ \t");
+                    " (-.-“)\n" +
+                    "  /   \\ \n");
         }
 
     }
@@ -52,16 +58,19 @@ public class Conejo extends Mascota {
     public void jugar() {
 
         int suerte = rdm.nextInt(0, 2);
-        if (isSalud() || (!isSalud() && suerte == 1)) {
+        if ((isSalud() || (!isSalud() && suerte == 1)) && getAnimo() < 100) {
 
             setAlimentacion(getAlimentacion() - 5);
             setHigiene(getHigiene() - 5);
             setAnimo(getAnimo() + 15);
+            Menu.clear();
+            System.out.println(getNombre() + " ha jugado");
         } else {
+            Menu.clear();
             System.out.println(getNombre() + " no quiere jugar");
-            System.out.println("(\\(\\\n" +
-                    " \t\t\t( “-.-)\n" +
-                    "  \t /   \\ \t");
+            System.out.println(" (\\(\\\n" +
+                    " (“-.-)\n" +
+                    " /   \\ \n");
         }
 
     }
@@ -95,14 +104,15 @@ public class Conejo extends Mascota {
                 } else {
                     System.out.println("  (\\_/)\n" +
                             " ( >.< )\n" +
-                            "  /   \\");
+                            "  /   \\ \n");
                 }
             }
 
         } else {
             System.out.println(" (\\_/) zZzZzZ\n" +
                     " ( -.-)\n" +
-                    " o(\")(\")\n");
+                    " o_(\")(\")\n");
+
 
         }
     }

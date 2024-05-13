@@ -9,9 +9,9 @@ public abstract class Mascota {
     private boolean vida = true;
     private boolean curado = false;
     private boolean dormido = false;
-    private int alimentacion = 100;
-    private int higiene = 100;
-    private int animo = 100;
+    private int alimentacion = 70;
+    private int higiene = 70;
+    private int animo = 70;
 
     public Mascota() {
     }
@@ -151,6 +151,7 @@ public abstract class Mascota {
     }
 
     public void avisos() {
+
         if (alimentacion < 50) {
             System.out.println(getNombre() + " tiene hambre");
         }
@@ -163,19 +164,21 @@ public abstract class Mascota {
         if (!salud) {
             System.out.println(getNombre() + " se encuentra mal");
         }
+
     }
 
     public void comprobarStats() {
         if (alimentacion <= 30 || higiene <= 30 || animo <= 30) {
             salud = false;
         }
-        if (alimentacion == 0 || higiene == 0 || animo == 0) {
+        if (alimentacion <= 0 || higiene <= 0 || animo <= 0) {
             vida = false;
         }
     }
 
     public void dormir() {
-        System.out.println(getNombre() + " se ha dormido");
+
+        System.out.println(getNombre() + " se ha ido a dormir\n");
         dormido = true;
         curado = false;
 
@@ -227,5 +230,7 @@ public abstract class Mascota {
 
     public abstract void imprimirModelo();
 
-
+    public void status(){
+        System.out.println("a = " + alimentacion + " h = " +higiene+" j = "+animo);
+    }
 }
