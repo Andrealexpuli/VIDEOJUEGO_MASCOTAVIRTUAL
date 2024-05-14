@@ -12,6 +12,10 @@ public abstract class Mascota {
     private int alimentacion = 70;
     private int higiene = 70;
     private int animo = 70;
+    private int contadorJugar = 0;
+    private int contadorAlimentar = 0;
+    private int contadorLimpiar = 0;
+    private int contadorEnferma = 0;
 
     public Mascota() {
     }
@@ -31,6 +35,38 @@ public abstract class Mascota {
         this.higiene = higiene;
         this.animo = animo;
 
+    }
+
+    public int getContadorEnferma() {
+        return contadorEnferma;
+    }
+
+    public void setContadorEnferma(int contadorEnferma) {
+        this.contadorEnferma = contadorEnferma;
+    }
+
+    public int getContadorJugar() {
+        return contadorJugar;
+    }
+
+    public void setContadorJugar(int contadorJugar) {
+        this.contadorJugar = contadorJugar;
+    }
+
+    public int getContadorAlimentar() {
+        return contadorAlimentar;
+    }
+
+    public void setContadorAlimentar(int contadorAlimentar) {
+        this.contadorAlimentar = contadorAlimentar;
+    }
+
+    public int getContadorLimpiar() {
+        return contadorLimpiar;
+    }
+
+    public void setContadorLimpiar(int contadorLimpiar) {
+        this.contadorLimpiar = contadorLimpiar;
     }
 
     public String getNombre() {
@@ -149,6 +185,9 @@ public abstract class Mascota {
     public void crecer() {
         edad++;
     }
+    public void aumentarContadorJugar(){contadorJugar++;}
+    public void aumentarContadorLimpiar(){contadorLimpiar++;}
+    public void aumentarContadorAlimentar(){contadorAlimentar++;}
 
     public void avisos() {
 
@@ -230,7 +269,7 @@ public abstract class Mascota {
 
     public abstract void imprimirModelo();
 
-    public void status(){
-        System.out.println("a = " + alimentacion + " h = " +higiene+" j = "+animo);
+    public void status() {
+        System.out.println("a = " + alimentacion + " h = " + higiene + " j = " + animo);
     }
 }

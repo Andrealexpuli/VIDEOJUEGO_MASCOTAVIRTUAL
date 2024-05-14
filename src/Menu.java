@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Menu {
     public static Scanner sc = new Scanner(System.in);
     private int opcion = -1;
-    private int posicion = 0;
+    private int posicion = -1;
 
     public Menu() {
     }
@@ -32,41 +32,47 @@ public class Menu {
 
         do {
             clear();
-            System.out.println(" >> MASCOTA VIRTUAL << ");
+            System.out.println(" >> PETVILLE: MENÚ PRINCIPAL << ");
             System.out.println("\nBienvenid@ al menú de inicio, a continuación le mostramos las opciones disponibles: ");
             System.out.println("\n\t1) Partida nueva \n\t2) Cargar partida \n\t3) Estadísticas \n\t0) Salir");
-            leerOpcion();
-            clear();
-            switch (opcion) {
-                case 1:
-                    menuCrearMascota();
-                    if (posicion != 0) {
-                        crearMascota();
-                    }
-                    break;
-                case 2:
-                    menuCargarPartida();
-                    if(posicion != 0){
-                    Main.partida();}
-                    break;
-                case 3:
-                    break;
-                case 0:
-                    System.out.println("¿Seguro que quiere salir? \n(Si esta seguro escriba: SI)");
-                    salir = sc.nextLine();
+            do {
+                leerOpcion();
+                if(opcion > 0 && opcion < 3){
+                clear();}
+                switch (opcion) {
+                    case 1:
+                        menuCrearMascota();
+                        if (posicion != 0) {
+                            crearMascota();
+                            menuEleccionJugar();
+                        }
+                        break;
+                    case 2:
+                        menuCargarPartida();
+                        if (posicion != 0) {
+                            Main.partida();
+                        }
+                        break;
+                    case 3:
+                        Main.imprimirEstadisticas();
+                        break;
+                    case 0:
+                        System.out.println("¿Seguro que quiere salir? \n(Si esta seguro escriba: SI)");
+                        salir = sc.nextLine();
 
-                break;
-                default:
-                    System.out.println("opcion no disponible");
-                    break;
-            }
+                        break;
+                    default:
+                        System.out.println("opcion no disponible");
+                        break;
+                }
+            }while (opcion < 0 || opcion > 3);
         } while (opcion != 0);
         return salir;
     }
 
     public void menuCrearMascota() {
-
-        System.out.println("Asi que quieres comenzar una nueva partida, ¡MUY BIEN!");
+        System.out.println(" >> PETVILLE: MENÚ PARTIDA NUEVA << ");
+        System.out.println("\nAsi que quieres comenzar una nueva partida, ¡MUY BIEN!");
         do {
             opcion = 0;
             System.out.println("Espacios de guardado disponibles: \n");
@@ -84,10 +90,14 @@ public class Menu {
             leerPosicion();
             clear();
             if (posicion != 0) {
-
                 if (Main.mascotasDisponibles[posicion - 1] != null) {
-                    System.out.println("El espacio elegido ya tiene una mascota creada, si acepta se eliminará permanentemente la mascota, ¿desea continuar? \n\t1) continuar \n\t2) volver atrás");
-                    leerOpcion();
+                    System.out.println("El espacio elegido ya tiene una mascota creada, si acepta se eliminará permanentemente la mascota, \n¿Desea continuar? \n\n\t1) Continuar \n\t2) Volver atrás");
+                    do {
+                        leerOpcion();
+                        if(opcion != 1 && opcion != 2){
+                            System.out.println("Opcion no valida, por favor introduzca un valor entre (1-2): ");
+                        }
+                    }while (opcion != 1 && opcion != 2);
                     clear();
                 }
             } else {
@@ -108,20 +118,34 @@ public class Menu {
         switch (opcion) {
             case 1:
                 System.out.println("En breves tendremos a su Conejo listo, pero primero... \n¿Qué nombre quieres ponerle?: ");
-                String nombreConejo = sc.nextLine();
+                String nombreConejo = leerNombre();
                 Conejo pet = new Conejo(nombreConejo);
                 Main.mascotasDisponibles[posicion - 1] = pet;
-                System.out.println("\nTu mascota " + pet.getNombre() + " ha sido creada correctamente y ya se encuentra disponible para jugar\n");
                 break;
 
             default:
-                System.out.println("opción no valida");
+                System.out.println("Opción no valida");
                 break;
+        }
+    }
+    public void menuEleccionJugar(){
+        Mascota pet = Main.mascotasDisponibles[posicion - 1];
+        clear();
+        System.out.println("Su mascota " + pet.getNombre()+ " ha sido creada correctamente y ya se encuentra disponible para jugar,\n¿Desea comenzar la partida?\n\n\t1) Continuar \n\t2) Volver al menú principal");
+        do {
+            leerOpcion();
+            if(opcion != 1 && opcion != 2){
+                System.out.println("Opcion no valida, por favor introduzca un valor entre (1-2): ");
+            }
+        }while (opcion != 1 && opcion != 2);
+        clear();
+        if(opcion == 1){
+            Main.partida();
         }
     }
 
     public void leerOpcion() {
-
+        opcion = -1;
         do {
             try {
                 opcion = sc.nextInt();
@@ -136,7 +160,6 @@ public class Menu {
     public void leerPosicion() {
 
         do {
-
                 try {
                     posicion = sc.nextInt();
                     if (posicion > Main.mascotasDisponibles.length || posicion < 0) {
@@ -149,6 +172,10 @@ public class Menu {
                 sc.nextLine();
 
         } while (posicion > Main.mascotasDisponibles.length || posicion < 0);
+    }
+    public String leerNombre(){
+        String nombre = sc.nextLine();
+        return nombre.substring(0, 1).toUpperCase() + nombre.substring(1).toLowerCase();
     }
 
     public void menuPartida() {
@@ -187,8 +214,8 @@ public class Menu {
 
     }
     public void menuCargarPartida() {
-
-        System.out.println("Asi que quieres continuar una partida, ¡MUY BIEN!");
+        System.out.println(" >> PETVILLE: MENÚ CARGAR PARTIDA << ");
+        System.out.println("\nAsi que quieres continuar una partida, ¡MUY BIEN!");
         do {
             opcion = 0;
             System.out.println("Partidas disponibles: \n");
@@ -208,8 +235,13 @@ public class Menu {
             if (posicion != 0) {
 
                 if (Main.mascotasDisponibles[posicion - 1] == null) {
-                    System.out.println("El espacio elegido no tiene una mascota creada, si acepta se creará una nueva mascota, ¿desea continuar? \n\t1) continuar \n\t2) volver atrás");
-                    leerOpcion();
+                    System.out.println("El espacio elegido no tiene una mascota creada, si acepta se creará una nueva mascota, \n¿Desea continuar?\n\n\t1) Continuar \n\t2) Volver atrás");
+                    do {
+                        leerOpcion();
+                        if(opcion != 1 && opcion != 2){
+                            System.out.println("Opcion no valida, por favor introduzca un valor entre (1-2): ");
+                        }
+                    }while (opcion != 1 && opcion != 2);
                     clear();
                     if(opcion == 1){
                         crearMascota();
