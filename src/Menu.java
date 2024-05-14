@@ -122,6 +122,18 @@ public class Menu {
                 Conejo pet = new Conejo(nombreConejo);
                 Main.mascotasDisponibles[posicion - 1] = pet;
                 break;
+            case 2:
+                System.out.println("En breves tendremos a su Gato listo, pero primero... \n¿Qué nombre quieres ponerle?: ");
+                String nombreGato = leerNombre();
+                Gato pet2 = new Gato(nombreGato);
+                Main.mascotasDisponibles[posicion - 1] = pet2;
+                break;
+            case 3:
+                System.out.println("En breves tendremos a su Pajaro listo, pero primero... \n¿Qué nombre quieres ponerle?: ");
+                String nombrePajaro = leerNombre();
+                Pajaro pet3 = new Pajaro(nombrePajaro);
+                Main.mascotasDisponibles[posicion - 1] = pet3;
+                break;
 
             default:
                 System.out.println("Opción no valida");
