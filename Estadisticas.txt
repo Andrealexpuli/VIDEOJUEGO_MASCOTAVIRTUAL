@@ -1,0 +1,24 @@
+
+Nombre: Herhwrh
+Dias Sobrevividos: 7
+Dias enferma: 4
+Veces que ha comido: 0
+Veces que ha jugado: 6
+Veces que se ha bañado: 0
+--------------------------------------
+Tipo:Gato
+Nombre: Ramon
+Dias Sobrevividos: 10
+Dias enferma: 4
+Veces que ha comido: 0
+Veces que ha jugado: 1
+Veces que se ha bañado: 1
+--------------------------------------
+Tipo:Conejo
+Nombre: Prueba
+Dias Sobrevividos: 8
+Dias enferma: 2
+Veces que ha comido: 0
+Veces que ha jugado: 5
+Veces que se ha bañado: 0
+--------------------------------------
