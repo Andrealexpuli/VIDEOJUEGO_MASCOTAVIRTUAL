@@ -24,18 +24,6 @@ public abstract class Mascota {
         this.nombre = nombre;
     }
 
-    public Mascota(String nombre, int edad, boolean salud, boolean vida, boolean curado, boolean dormido, int alimentacion, int higiene, int animo) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.salud = salud;
-        this.vida = vida;
-        this.curado = curado;
-        this.dormido = dormido;
-        this.alimentacion = alimentacion;
-        this.higiene = higiene;
-        this.animo = animo;
-
-    }
 
     public int getContadorEnferma() {
         return contadorEnferma;
@@ -185,9 +173,25 @@ public abstract class Mascota {
     public void crecer() {
         edad++;
     }
-    public void aumentarContadorJugar(){contadorJugar++;}
-    public void aumentarContadorLimpiar(){contadorLimpiar++;}
-    public void aumentarContadorAlimentar(){contadorAlimentar++;}
+
+    public void aumentarContadorJugar() {
+        contadorJugar++;
+    }
+
+    public void aumentarContadorLimpiar() {
+        contadorLimpiar++;
+    }
+
+    public void aumentarContadorAlimentar() {
+        contadorAlimentar++;
+    }
+
+    public void aumentarContadorEnfermo() {
+        if (!isSalud()) {
+            contadorEnferma++;
+        }
+
+    }
 
     public void avisos() {
 
@@ -268,6 +272,7 @@ public abstract class Mascota {
     public abstract void salud();
 
     public abstract void imprimirModelo();
+    public abstract String tipoMascota();
 
     public void status() {
         System.out.println("a = " + alimentacion + " h = " + higiene + " j = " + animo);

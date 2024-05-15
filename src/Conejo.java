@@ -11,9 +11,6 @@ public class Conejo extends Mascota {
         super(nombre);
     }
 
-    public Conejo(String nombre, int edad, boolean salud, boolean vida, boolean curado, boolean dormido, int alimentacion, int higiene, int animo) {
-        super(nombre, edad, salud, vida, curado, dormido, alimentacion, higiene, animo);
-    }
 
     @Override
     public void alimentar() {
@@ -50,7 +47,7 @@ public class Conejo extends Mascota {
         } else {
             Menu.clear();
             System.out.println(getNombre() + " no quiere bañarse");
-            System.out.println(" /)/)\n" +
+            System.out.println("  /)/)\n" +
                     " (-.-“)\n" +
                     "  /   \\ \n");
         }
@@ -119,5 +116,10 @@ public class Conejo extends Mascota {
 
 
         }
+    }
+
+    @Override
+    public String tipoMascota() {
+        return "Conejo";
     }
 }
