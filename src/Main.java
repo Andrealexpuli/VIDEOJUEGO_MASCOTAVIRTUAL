@@ -34,15 +34,17 @@ public class Main {
     public static void partida() {
         Mascota pet = mascotasDisponibles[menu.getPosicion() - 1];
 
-        System.out.println("\n¡ENHORABUENA!\n " + pet.getNombre() + " ya se encuentra en PetVille lista para ser cuidada,\n!MUCHA SUERTE!\n");
+        System.out.println("\n\t"+ColorText.bold + ColorText.green+"¡ENHORABUENA! \n\t"
+                 + pet.getNombre() + " ya se encuentra en PetVille lista para ser cuidada \n\t"+
+                 "!MUCHA SUERTE! "+ColorText.cleanse+"\n");
         do {
             int i = 0;
             pet.setDormido(false);
             pet.crecer();
             do {
-                System.out.println("---------------------------------------------------------------");
-                System.out.println(" >> DIA: " + pet.getEdad() + " << ");
-                System.out.println("---------------------------------------------------------------\n");
+                System.out.println("\n\t"+ColorText.bold+ColorText.blue+"---------------------------------------------------------------"+ColorText.cleanse);
+                System.out.println("\t"+ColorText.bold+ColorText.blue+" >> DIA: " + pet.getEdad() + " <<                              "+ColorText.cleanse);
+                System.out.println("\t"+ColorText.bold+ColorText.blue+"---------------------------------------------------------------"+ColorText.cleanse+"\n");
 
                 pet.comprobarStats();
                 pet.imprimirModelo();
@@ -64,16 +66,13 @@ public class Main {
         } while (pet.isVida() && menu.getOpcion() != 0);
         guardarMascotaEliminada(pet);
         if (!pet.isVida()) {
-            System.out.println("             _____\n" +
-                    "            | RIP |\n" +
-                    "      ______|     |______\n" +
-                    "         " + pet.getNombre() + " - " + pet.getEdad() + " Dias\n" +
-                    "      ______       ______\n" +
-                    "            |     |\n" +
-                    "            |     |\n" +
-                    "            |_____|\n");
-            System.out.println("\n > GAME OVER <\n");
-            System.out.println("\nPor favor pulse cualquier tecla para volver al menu principal");
+
+            System.out.println("\n\t██     "+ColorText.red+"██████   █████  ███    ███ ███████      ██████  ██    ██ ███████ ██████"+ColorText.cleanse+"     ██ \n" +
+                    "\t ██   "+ColorText.red+"██       ██   ██ ████  ████ ██          ██    ██ ██    ██ ██      ██   ██"+ColorText.cleanse+"   ██  \n" +
+                    "\t  ██  "+ColorText.red+"██   ███ ███████ ██ ████ ██ █████       ██    ██ ██    ██ █████   ██████"+ColorText.cleanse+"   ██   \n" +
+                    "\t ██   "+ColorText.red+"██    ██ ██   ██ ██  ██  ██ ██          ██    ██  ██  ██  ██      ██   ██"+ColorText.cleanse+"   ██  \n" +
+                    "\t██     "+ColorText.red+"██████  ██   ██ ██      ██ ███████      ██████    ████   ███████ ██   ██"+ColorText.cleanse+"    ██ \n");
+            System.out.println("\n\t"+ColorText.bold + ColorText.bBlue+ ColorText.black+" Por favor pulse cualquier tecla para volver al menu principal "+ColorText.cleanse);
             sc.nextLine();
         }
     }

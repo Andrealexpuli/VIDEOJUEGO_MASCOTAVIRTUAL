@@ -65,12 +65,13 @@ public class Menu {
                         Main.imprimirFicheroEstadisticas();
                         break;
                     case 0:
-                        System.out.println("¿Seguro que quiere salir? \n(Si esta seguro escriba: SI)");
+                        System.out.println("\t"+ColorText.bold + ColorText.bBlue+ ColorText.black+" ¿Seguro que quiere salir? "+ColorText.cleanse+"\n\t"+
+                                "(Si esta seguro escriba: SI)");
                         salir = sc.nextLine();
 
                         break;
                     default:
-                        System.out.println(ColorText.red+"\topcion no disponible"+ColorText.cleanse);
+                        System.out.println("\t"+ColorText.bold + ColorText.bBlue+ ColorText.black+" Opcion no disponible "+ColorText.cleanse);
                         break;
                 }
             }while (opcion < 0 || opcion > 3);
@@ -161,10 +162,10 @@ public class Menu {
     public void menuEleccionJugar(){
         Mascota pet = Main.mascotasDisponibles[posicion - 1];
         clear();
-        System.out.println(ColorText.bold+ColorText.bGreen+ColorText.black+"\tSu mascota " + pet.getNombre()+ " ha sido creada correctamente " +ColorText.cleanse+
-                "\n¿Desea comenzar la partida?" +ColorText.bold+
-                "\n\n\t1) Continuar " +
-                "\n\t2) "+ColorText.blue+"Volver al menú principal"+ColorText.cleanse);
+        System.out.println("\t"+ColorText.bold+ColorText.bGreen+ColorText.black+" Su mascota " + pet.getNombre()+ " ha sido creada correctamente " +ColorText.cleanse+
+                "\n\t¿Desea comenzar la partida?" +ColorText.bold+
+                "\n\n\t\t1) Continuar " +
+                "\n\t\t2) "+ColorText.blue+"Volver al menú principal"+ColorText.cleanse);
         do {
             leerOpcion();
             if(opcion != 1 && opcion != 2){
@@ -214,9 +215,9 @@ public class Menu {
     public void menuPartida() {
         Mascota pet = Main.mascotasDisponibles[posicion - 1];
         if (pet.isSalud()) {
-            System.out.println("(1) Alimentar\t(2) Bañar\t(3) Jugar\t(0) Salir");
+            System.out.println("\t"+ColorText.bold+ColorText.bBlue+ColorText.black+" (1) Alimentar\t(2) Bañar\t(3) Jugar\t"+ColorText.cleanse+ColorText.bold+ColorText.bBlue+"(0) Salir "+ColorText.cleanse);
         } else {
-            System.out.println("(1) Alimentar\t(2) Bañar\t(3) Jugar\t(4) Curar\t(0) Salir");
+            System.out.println("\t"+ColorText.bold+ColorText.bBlue+ColorText.black+" (1) Alimentar\t(2) Bañar\t(3) Jugar\t"+ColorText.bold+ColorText.bGreen+ColorText.black+"(4) Curar\t"+ColorText.cleanse+ColorText.bold+ColorText.bBlue+"(0) Salir "+ColorText.cleanse);
         }
         leerOpcion();
         switch (opcion) {
@@ -233,14 +234,14 @@ public class Menu {
                 if (!pet.isSalud()) {
                     pet.curar();
                 } else {
-                    System.out.println("Su mascota ya está sana");
+                    System.out.println("\t"+ColorText.bold+ColorText.bGreen+ColorText.black+" Su mascota ya está sana "+ColorText.cleanse);
                 }
                 break;
             case 0:
-                System.out.println(" > PARTIDA FINALIZADA < ");
+                System.out.println("\t"+ColorText.bold+ColorText.bBlue+ColorText.black+" > PARTIDA FINALIZADA < "+ColorText.cleanse);
                 break;
             default:
-                System.out.println("opción no disponible");
+                System.out.println("\t"+ColorText.bold+ColorText.bRed+ColorText.black+" Opción no disponible "+ColorText.cleanse);
                 break;
 
         }

@@ -21,14 +21,14 @@ public class Conejo extends Mascota {
             setAlimentacion(getAlimentacion() + 15);
             setHigiene(getHigiene() - 5);
             Menu.clear();
-            System.out.println(getNombre() + " ha comido");
+            System.out.println("\t"+ColorText.bold+ColorText.bGreen+ColorText.black+" "+getNombre() + " ha comido "+ColorText.cleanse);
             aumentarContadorAlimentar();
         } else {
             Menu.clear();
-            System.out.println(getNombre() + " no quiere comer");
-            System.out.println(" (\\(\\\n" +
-                    " (“-.-)\n" +
-                    " /   \\ \n ");
+            System.out.println("\t"+ColorText.bold+ColorText.bRed+ColorText.black+" "+getNombre() + " no quiere comer "+ColorText.cleanse);
+            System.out.println("\n\t\t (\\(\\\n" +
+                    "\t\t (“-.-)\n" +
+                    "\t\t /   \\  ");
         }
 
     }
@@ -37,19 +37,19 @@ public class Conejo extends Mascota {
     public void limpiar() {
 
         int suerte = rdm.nextInt(0, 2);
-        if ((isSalud() || (!isSalud() && suerte == 1) && getHigiene() < 100)) {
+        if ((isSalud() || (!isSalud() && suerte == 1)) && getHigiene() < 100) {
 
             setAlimentacion(getAlimentacion() - 5);
             setHigiene(getHigiene() + 15);
             Menu.clear();
-            System.out.println(getNombre() + " se ha bañado");
+            System.out.println("\t"+ColorText.bold+ColorText.bGreen+ColorText.black+" "+getNombre() + " se ha bañado "+ColorText.cleanse);
             aumentarContadorLimpiar();
         } else {
             Menu.clear();
-            System.out.println(getNombre() + " no quiere bañarse");
-            System.out.println("  /)/)\n" +
-                    " (-.-“)\n" +
-                    "  /   \\ \n");
+            System.out.println("\t"+ColorText.bold+ColorText.bRed+ColorText.black+" "+getNombre() + " no quiere bañarse "+ColorText.cleanse);
+            System.out.println("\n\t\t  /)/)\n" +
+                    "\t\t (-.-“)\n" +
+                    "\t\t  /   \\ ");
         }
 
     }
@@ -64,14 +64,14 @@ public class Conejo extends Mascota {
             setHigiene(getHigiene() - 5);
             setAnimo(getAnimo() + 15);
             Menu.clear();
-            System.out.println(getNombre() + " ha jugado");
+            System.out.println("\t"+ColorText.bold+ColorText.bGreen+ColorText.black+" "+getNombre() + " ha jugado "+ColorText.cleanse);
             aumentarContadorJugar();
         } else {
             Menu.clear();
-            System.out.println(getNombre() + " no quiere jugar");
-            System.out.println(" (\\(\\\n" +
-                    " (“-.-)\n" +
-                    " /   \\ \n");
+            System.out.println("\t"+ColorText.bold+ColorText.bRed+ColorText.black+" "+getNombre() + " no quiere jugar "+ColorText.cleanse);
+            System.out.println("\n\t\t (\\(\\\n" +
+                    "\t\t (“-.-)\n" +
+                    "\t\t /   \\ ");
         }
 
     }
@@ -89,30 +89,30 @@ public class Conejo extends Mascota {
     public void imprimirModelo() {
         if (!isDormido()) {
             if (!isSalud()) {
-                System.out.println(" (\\(\\\n" +
-                        " ( x.x) \n" +
-                        " o_(\")(\")\n");
+                System.out.println("\t\t (\\(\\\n" +
+                        "\t\t ( x.x) \n" +
+                        "\t\t o_(\")(\")\n");
             } else {
                 int mediaStats = (getAlimentacion() + getAnimo() + getHigiene()) / 3;
-                if (mediaStats >= 80) {
-                    System.out.println("  (\\_/)\n" +
-                            " ( ^.^ )\n" +
-                            "  /   \\ \n");
-                } else if (mediaStats >= 60) {
-                    System.out.println("  (\\_/)  \n" +
-                            " ( o.o )\n" +
-                            "  /   \\ \n");
+                if (getAlimentacion() > 80 && getAnimo() > 80 && getHigiene() > 80) {
+                    System.out.println("\t\t  (\\_/)\n" +
+                            "\t\t ( ^.^ )\n" +
+                            "\t\t  /   \\ \n");
+                } else if (getAlimentacion() > 45 && getAnimo() > 45 && getHigiene() > 45) {
+                    System.out.println("\t\t  (\\_/)  \n" +
+                            "\t\t ( o.o )\n" +
+                            "\t\t  /   \\ \n");
                 } else {
-                    System.out.println("  (\\_/)\n" +
-                            " ( >.< )\n" +
-                            "  /   \\ \n");
+                    System.out.println("\t\t  (\\_/)\n" +
+                            "\t\t ( >.< )\n" +
+                            "\t\t  /   \\ \n");
                 }
             }
 
         } else {
-            System.out.println(" (\\_/) zZzZzZ\n" +
-                    " ( -.-)\n" +
-                    " o_(\")(\")\n");
+            System.out.println("\t\t (\\_/) zZzZzZ\n" +
+                    "\t\t ( -.-)\n" +
+                    "\t\t o_(\")(\")");
 
 
         }

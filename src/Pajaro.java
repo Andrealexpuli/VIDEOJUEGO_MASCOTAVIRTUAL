@@ -37,7 +37,7 @@ public class Pajaro extends Mascota {
     public void limpiar() {
 
         int suerte = rdm.nextInt(0, 4);
-        if ((isSalud() || (!isSalud() && suerte == 1) && getHigiene() < 100)) {
+        if ((isSalud() || (!isSalud() && suerte == 1)) && getHigiene() < 100) {
 
             setAlimentacion(getAlimentacion() - 5);
             setHigiene(getHigiene() + 10);

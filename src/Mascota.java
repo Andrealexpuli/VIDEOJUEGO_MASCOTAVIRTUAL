@@ -158,14 +158,17 @@ public abstract class Mascota {
                     setAnimo(45);
                 }
                 setSalud(true);
-                System.out.println("¡Genial, " + getNombre() + " se ha curado!");
+                Menu.clear();
+                System.out.println("\t"+ColorText.bold+ColorText.bGreen+ColorText.black+" ¡Genial, " + getNombre() + " se ha curado! "+ColorText.cleanse);
             } else {
                 setSalud(false);
-                System.out.println("¡Qué mal, a " + getNombre() + " no le hizo efecto la medicina");
+                Menu.clear();
+                System.out.println("\t"+ColorText.bold+ColorText.bYellow+ColorText.black+" ¡Qué mal, a " + getNombre() + " no le hizo efecto la medicina "+ColorText.cleanse);
             }
             setCurado(true);
         } else {
-            System.out.println(getNombre() + " no quiere tomar más medicamento por hoy");
+            Menu.clear();
+            System.out.println("\t"+ColorText.bold+ColorText.bRed+ColorText.black+" "+getNombre() + " no quiere tomar más medicamento por hoy "+ColorText.cleanse);
 
         }
     }
@@ -196,16 +199,16 @@ public abstract class Mascota {
     public void avisos() {
 
         if (alimentacion < 50) {
-            System.out.println(getNombre() + " tiene hambre");
+            System.out.println("\t"+ColorText.bold+ColorText.yellow+"> "+getNombre() + " tiene hambre"+ColorText.cleanse);
         }
         if (higiene < 50) {
-            System.out.println(getNombre() + " huele mal");
+            System.out.println("\t"+ColorText.bold+ColorText.yellow+"> "+getNombre() + " huele mal"+ColorText.cleanse);
         }
         if (animo < 50) {
-            System.out.println(getNombre() + " se siente triste");
+            System.out.println("\t"+ColorText.bold+ColorText.yellow+"> "+getNombre() + " se siente triste"+ColorText.cleanse);
         }
         if (!salud) {
-            System.out.println(getNombre() + " se encuentra mal");
+            System.out.println("\t"+ColorText.bold+ColorText.red+"> "+getNombre() + " se encuentra mal"+ColorText.cleanse);
         }
 
     }
@@ -221,7 +224,7 @@ public abstract class Mascota {
 
     public void dormir() {
 
-        System.out.println(getNombre() + " se ha ido a dormir\n");
+        System.out.println("\n\t"+ColorText.bold+ColorText.bPink+ColorText.black+" "+getNombre() + " se ha ido a dormir "+ColorText.cleanse+"\n");
         dormido = true;
         curado = false;
 

@@ -22,3 +22,27 @@ Veces que ha comido: 0
 Veces que ha jugado: 5
 Veces que se ha bañado: 0
 --------------------------------------
+Tipo: Conejo
+Nombre: Grhh
+Dias Sobrevividos: 8
+Dias enferma: 4
+Veces que ha comido: 0
+Veces que ha jugado: 4
+Veces que se ha bañado: 0
+--------------------------------------
+Tipo: Conejo
+Nombre: Hrwh
+Dias Sobrevividos: 7
+Dias enferma: 3
+Veces que ha comido: 0
+Veces que ha jugado: 4
+Veces que se ha bañado: 2
+--------------------------------------
+Tipo: Conejo
+Nombre: Ee
+Dias Sobrevividos: 8
+Dias enferma: 4
+Veces que ha comido: 0
+Veces que ha jugado: 5
+Veces que se ha bañado: 3
+--------------------------------------
