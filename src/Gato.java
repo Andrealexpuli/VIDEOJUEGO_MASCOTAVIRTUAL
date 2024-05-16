@@ -20,14 +20,14 @@ public class Gato extends Mascota {
             setAlimentacion(getAlimentacion() + 10);
             setAnimo(getAnimo() + 5);
             Menu.clear();
-            System.out.println(getNombre() + " ha comido");
+            System.out.println("\t"+ColorText.bold+ColorText.bGreen+ColorText.black+" "+getNombre() + " ha comido "+ColorText.cleanse);
             aumentarContadorAlimentar();
         } else {
             Menu.clear();
-            System.out.println(getNombre() + " no quiere comer");
-            System.out.println(" /\\_/\\\n" +
-                    " (“-.-)\n" +
-                    " /   \\ \n ");
+            System.out.println("\t"+ColorText.bold+ColorText.bRed+ColorText.black+" "+getNombre() + " no quiere comer "+ColorText.cleanse);
+            System.out.println("\n\t\t /\\_/\\\n" +
+                    "\t\t (“-.-)\n" +
+                    "\t\t /   \\  ");
         }
 
     }
@@ -42,14 +42,14 @@ public class Gato extends Mascota {
             setHigiene(getHigiene() + 10);
             setAnimo(getAnimo() - 10);
             Menu.clear();
-            System.out.println(getNombre() + " se ha bañado");
+            System.out.println("\t"+ColorText.bold+ColorText.bGreen+ColorText.black+" "+getNombre() + " se ha bañado "+ColorText.cleanse);
             aumentarContadorLimpiar();
         } else {
             Menu.clear();
-            System.out.println(getNombre() + " no quiere bañarse");
-            System.out.println(" /\\_/\\\n" +
-                    " (-.-“)\n" +
-                    "  /   \\ \n");
+            System.out.println("\t"+ColorText.bold+ColorText.bRed+ColorText.black+" "+getNombre() + " no quiere bañarse "+ColorText.cleanse);
+            System.out.println("\n\t\t  /\\_/\\\n" +
+                    "\t\t (-.-“)\n" +
+                    "\t\t  /   \\ ");
         }
 
     }
@@ -64,14 +64,14 @@ public class Gato extends Mascota {
             setHigiene(getHigiene() - 5);
             setAnimo(getAnimo() + 10);
             Menu.clear();
-            System.out.println(getNombre() + " ha jugado");
+            System.out.println("\t"+ColorText.bold+ColorText.bGreen+ColorText.black+" "+getNombre() + " ha jugado "+ColorText.cleanse);
             aumentarContadorJugar();
         } else {
             Menu.clear();
-            System.out.println(getNombre() + " no quiere jugar");
-            System.out.println(" /\\_/\\\n" +
-                    " (“-.-)\n" +
-                    " /   \\ \n");
+            System.out.println("\t"+ColorText.bold+ColorText.bRed+ColorText.black+" "+getNombre() + " no quiere jugar "+ColorText.cleanse);
+            System.out.println("\n\t\t /\\_/\\\n" +
+                    "\t\t (“-.-)\n" +
+                    "\t\t /   \\ \n");
         }
 
     }
@@ -89,30 +89,30 @@ public class Gato extends Mascota {
     public void imprimirModelo() {
         if (!isDormido()) {
             if (!isSalud()) {
-                System.out.println(" /\\_/\\\n" +
-                        " ( x.x) \n" +
-                        " (_(\")(\")\n");
+                System.out.println("\t\t /\\_/\\\n" +
+                        "\t\t ( x.x) \n" +
+                        "\t\t (_(\")(\")\n");
             } else {
-                int mediaStats = (getAlimentacion() + getAnimo() + getHigiene()) / 3;
-                if (mediaStats >= 80) {
-                    System.out.println("  /\\_/\\\n" +
-                            " ( ^.^ )\n" +
-                            "  /   \\ \n");
-                } else if (mediaStats >= 60) {
-                    System.out.println("  /\\_/\\  \n" +
-                            " ( o.o )\n" +
-                            "  /   \\ \n");
+
+                if (getAlimentacion() > 80 && getAnimo() > 80 && getHigiene() > 80) {
+                    System.out.println("\t\t  /\\_/\\\n" +
+                            "\t\t ( ^.^ )\n" +
+                            "\t\t  /   \\ \n");
+                } else if (getAlimentacion() > 45 && getAnimo() > 45 && getHigiene() > 45) {
+                    System.out.println("\t\t  /\\_/\\  \n" +
+                            "\t\t ( o.o )\n" +
+                            "\t\t  /   \\ \n");
                 } else {
-                    System.out.println("  /\\_/\\\n" +
-                            " ( >.< )\n" +
-                            "  /   \\ \n");
+                    System.out.println("\t\t  /\\_/\\\n" +
+                            "\t\t ( >.< )\n" +
+                            "\t\t  /   \\ \n");
                 }
             }
 
         } else {
-            System.out.println(" /\\_/\\ zZzZzZ\n" +
-                    " ( -.-)\n" +
-                    " (_(\")(\")\n");
+            System.out.println("\t\t /\\_/\\ zZzZzZ\n" +
+                    "\t\t ( -.-)\n" +
+                    "\t\t (_(\")(\")");
 
 
         }

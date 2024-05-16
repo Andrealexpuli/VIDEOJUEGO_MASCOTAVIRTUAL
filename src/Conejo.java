@@ -93,7 +93,7 @@ public class Conejo extends Mascota {
                         "\t\t ( x.x) \n" +
                         "\t\t o_(\")(\")\n");
             } else {
-                int mediaStats = (getAlimentacion() + getAnimo() + getHigiene()) / 3;
+
                 if (getAlimentacion() > 80 && getAnimo() > 80 && getHigiene() > 80) {
                     System.out.println("\t\t  (\\_/)\n" +
                             "\t\t ( ^.^ )\n" +

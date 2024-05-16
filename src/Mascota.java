@@ -9,9 +9,9 @@ public abstract class Mascota {
     private boolean vida = true;
     private boolean curado = false;
     private boolean dormido = false;
-    private int alimentacion = 70;
-    private int higiene = 70;
-    private int animo = 70;
+    private int alimentacion = 80;
+    private int higiene = 80;
+    private int animo = 80;
     private int contadorJugar = 0;
     private int contadorAlimentar = 0;
     private int contadorLimpiar = 0;

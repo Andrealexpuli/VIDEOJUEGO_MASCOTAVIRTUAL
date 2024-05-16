@@ -91,14 +91,14 @@ public class Main {
             String filePath = "Estadisticas.txt";
             FileWriter fw = new FileWriter(filePath, true);
 
-            String texto = ("\nTipo: " + pet.tipoMascota() +
-                    "\nNombre: " + pet.getNombre() +
-                    "\nDias Sobrevividos: " + pet.getEdad() +
-                    "\nDias enferma: " + pet.getContadorEnferma() +
-                    "\nVeces que ha comido: " + pet.getContadorAlimentar() +
-                    "\nVeces que ha jugado: " + pet.getContadorJugar() +
-                    "\nVeces que se ha bañado: " + pet.getContadorLimpiar() +
-                    "\n--------------------------------------");
+            String texto = ("\n\tTipo: " + pet.tipoMascota() +
+                    "\n\tNombre: " + pet.getNombre() +
+                    "\n\tDias Sobrevividos: " + pet.getEdad() +
+                    "\n\tDias enferma: " + pet.getContadorEnferma() +
+                    "\n\tVeces que ha comido: " + pet.getContadorAlimentar() +
+                    "\n\tVeces que ha jugado: " + pet.getContadorJugar() +
+                    "\n\tVeces que se ha bañado: " + pet.getContadorLimpiar() +
+                    "\n\t--------------------------------------");
             fw.write(texto);
 
             fw.close();
@@ -109,7 +109,11 @@ public class Main {
 
     public static void imprimirFicheroEstadisticas() {
         Menu.clear();
-        System.out.println("> PETVILLE: MENÚ ESTADÍSTICAS <");
+        System.out.println("\n\t██    "+ColorText.blue+"███████  ██████  ██████  ██████  ███████"+ColorText.cleanse+"    ██ \n" +
+                "\t ██   "+ColorText.blue+"██      ██      ██    ██ ██   ██ ██"+ColorText.cleanse+"        ██  \n" +
+                "\t  ██  "+ColorText.blue+"███████ ██      ██    ██ ██████  █████"+ColorText.cleanse+"    ██   \n" +
+                "\t ██        "+ColorText.blue+"██ ██      ██    ██ ██   ██ ██"+ColorText.cleanse+"        ██  \n" +
+                "\t██    "+ColorText.blue+"███████  ██████  ██████  ██   ██ ███████ "+ColorText.cleanse+"   ██");
         try {
             File archivo = new File("Estadisticas.txt");
             Scanner lector = new Scanner(archivo);
@@ -125,10 +129,10 @@ public class Main {
         } catch (FileNotFoundException fnfe) {
             System.out.println(fnfe.getMessage());
         } catch (NoSuchElementException nsee) {
-            System.out.println("> No hay más estadísticas <");
+            System.out.println("\t"+ColorText.bold + ColorText.bYellow+ ColorText.black+" > No hay más estadísticas < "+ColorText.cleanse);
         }
 
-        System.out.println("\nPor favor pulse cualquier tecla para volver al menu principal");
+        System.out.println("\n\t"+ColorText.bold + ColorText.bBlue+ ColorText.black+" Por favor pulse cualquier tecla para volver al menu principal "+ColorText.cleanse);
         sc.nextLine();
     }
 
@@ -136,6 +140,6 @@ public class Main {
 
 class EstadisticasVacias extends Exception {
     public EstadisticasVacias() {
-        super("Aun no has perdido ninguna partida, cuando lo hagas vuelve para ver sus estadisticas :D");
+        super("\n\t"+ColorText.bold + ColorText.bYellow+ ColorText.black+" Aun no has perdido ninguna partida, cuando lo hagas vuelve para ver sus estadisticas :D "+ColorText.cleanse);
     }
 }
