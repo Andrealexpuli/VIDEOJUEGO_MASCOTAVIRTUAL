@@ -32,11 +32,16 @@ public class Menu {
 
         do {
             clear();
-            System.out.println("\t██    " + ColorText.blue + "███    ███ ███████ ███    ██ ██    ██" + ColorText.cleanse + "    ██ \n" +
-                    "\t ██   " + ColorText.blue + "████  ████ ██      ████   ██ ██    ██" + ColorText.cleanse + "   ██  \n" +
-                    "\t  ██  " + ColorText.blue + "██ ████ ██ █████   ██ ██  ██ ██    ██" + ColorText.cleanse + "  ██   \n" +
-                    "\t ██   " + ColorText.blue + "██  ██  ██ ██      ██  ██ ██ ██    ██" + ColorText.cleanse + "   ██  \n" +
-                    "\t██    " + ColorText.blue + "██      ██ ███████ ██   ████  ██████" + ColorText.cleanse + "     ██ ");
+            System.out.println("\t██    " + ColorText.blue + "███    ███ ███████ ███    ██ ██    ██" + ColorText.cleanse
+                    + "    ██ \n" +
+                    "\t ██   " + ColorText.blue + "████  ████ ██      ████   ██ ██    ██" + ColorText.cleanse
+                    + "   ██  \n" +
+                    "\t  ██  " + ColorText.blue + "██ ████ ██ █████   ██ ██  ██ ██    ██" + ColorText.cleanse
+                    + "  ██   \n" +
+                    "\t ██   " + ColorText.blue + "██  ██  ██ ██      ██  ██ ██ ██    ██" + ColorText.cleanse
+                    + "   ██  \n" +
+                    "\t██    " + ColorText.blue + "██      ██ ███████ ██   ████  ██████" + ColorText.cleanse
+                    + "     ██ ");
             System.out.println("\n\tBienvenid@ al menú de inicio." +
                     "\n\tA continuación le mostramos las opciones disponibles: ");
             System.out.println(ColorText.bold + "\n\t\t1) Partida nueva " +
@@ -66,13 +71,15 @@ public class Menu {
                         Main.imprimirFicheroEstadisticas();
                         break;
                     case 0:
-                        System.out.println("\t" + ColorText.bold + ColorText.bBlue + ColorText.black + " ¿Seguro que quiere salir? " + ColorText.cleanse + "\n\t" +
+                        System.out.println("\t" + ColorText.bold + ColorText.bBlue + ColorText.black
+                                + " ¿Seguro que quiere salir? " + ColorText.cleanse + "\n\t" +
                                 "(Si esta seguro escriba: SI)");
                         salir = sc.nextLine();
 
                         break;
                     default:
-                        System.out.println("\t" + ColorText.bold + ColorText.bBlue + ColorText.black + " Opcion no disponible " + ColorText.cleanse);
+                        System.out.println("\t" + ColorText.bold + ColorText.bBlue + ColorText.black
+                                + " Opcion no disponible " + ColorText.cleanse);
                         break;
                 }
             } while (opcion < 0 || opcion > 3);
@@ -81,11 +88,16 @@ public class Menu {
     }
 
     public void menuCrearMascota() {
-        System.out.println("\t██    " + ColorText.blue + "███    ██ ██    ██ ███████ ██    ██  █████" + ColorText.cleanse + "     ██ \n" +
-                "\t ██   " + ColorText.blue + "████   ██ ██    ██ ██      ██    ██ ██   ██" + ColorText.cleanse + "   ██  \n" +
-                "\t  ██  " + ColorText.blue + "██ ██  ██ ██    ██ █████   ██    ██ ███████" + ColorText.cleanse + "  ██   \n" +
-                "\t ██   " + ColorText.blue + "██  ██ ██ ██    ██ ██       ██  ██  ██   ██" + ColorText.cleanse + "   ██  \n" +
-                "\t██    " + ColorText.blue + "██   ████  ██████  ███████   ████   ██   ██" + ColorText.cleanse + "    ██");
+        System.out.println("\t██    " + ColorText.blue + "███    ██ ██    ██ ███████ ██    ██  █████"
+                + ColorText.cleanse + "     ██ \n" +
+                "\t ██   " + ColorText.blue + "████   ██ ██    ██ ██      ██    ██ ██   ██" + ColorText.cleanse
+                + "   ██  \n" +
+                "\t  ██  " + ColorText.blue + "██ ██  ██ ██    ██ █████   ██    ██ ███████" + ColorText.cleanse
+                + "  ██   \n" +
+                "\t ██   " + ColorText.blue + "██  ██ ██ ██    ██ ██       ██  ██  ██   ██" + ColorText.cleanse
+                + "   ██  \n" +
+                "\t██    " + ColorText.blue + "██   ████  ██████  ███████   ████   ██   ██" + ColorText.cleanse
+                + "    ██");
         System.out.println("\n\tAsi que quieres comenzar una nueva partida, ¡MUY BIEN!");
         do {
             opcion = 0;
@@ -93,9 +105,11 @@ public class Menu {
             int i = 1;
             for (Mascota m : Main.mascotasDisponibles) {
                 if (m == null) {
-                    System.out.println("\t\t" + ColorText.bold + i++ + ") " + ColorText.green + "espacio disponible" + ColorText.cleanse);
+                    System.out.println("\t\t" + ColorText.bold + i++ + ") " + ColorText.green + "espacio disponible"
+                            + ColorText.cleanse);
                 } else {
-                    System.out.println("\t\t" + ColorText.bold + i++ + ") " + m.tipoMascota() + ", " + m.getNombre() + ", " + m.getEdad() + " Dias" + ColorText.cleanse);
+                    System.out.println("\t\t" + ColorText.bold + i++ + ") " + m.tipoMascota() + ", " + m.getNombre()
+                            + ", " + m.getEdad() + " Dias" + ColorText.cleanse);
 
                 }
             }
@@ -105,14 +119,19 @@ public class Menu {
             clear();
             if (posicion != 0) {
                 if (Main.mascotasDisponibles[posicion - 1] != null) {
-                    System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " El espacio elegido ya tiene una mascota creada, si acepta se eliminará permanentemente la mascota " + ColorText.cleanse +
+                    System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black
+                            + " El espacio elegido ya tiene una mascota creada, si acepta se eliminará permanentemente la mascota "
+                            + ColorText.cleanse +
                             "\n\n\t¿Desea sobrescribir la mascota? " +
-                            "\n\n\t\t" + ColorText.bold + "1) " + ColorText.red + "Sobrescribir mascota " + ColorText.cleanse +
+                            "\n\n\t\t" + ColorText.bold + "1) " + ColorText.red + "Sobrescribir mascota "
+                            + ColorText.cleanse +
                             "\n\t\t" + ColorText.bold + "2) " + ColorText.blue + "Volver atrás" + ColorText.cleanse);
                     do {
                         leerOpcion();
                         if (opcion != 1 && opcion != 2) {
-                            System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " Opcion no valida, por favor introduzca un valor entre (1-2): " + ColorText.cleanse);
+                            System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black
+                                    + " Opcion no valida, por favor introduzca un valor entre (1-2): "
+                                    + ColorText.cleanse);
                         }
                     } while (opcion != 1 && opcion != 2);
                     clear();
@@ -121,35 +140,38 @@ public class Menu {
                 System.out.println("\tVolviendo al menú Principal");
             }
 
-
         } while (opcion == 2);
 
     }
 
     public void crearMascota() {
 
-        System.out.println("\t" + ColorText.bold + ColorText.bGrey + ColorText.black + " ¿Qué tipo de mascota quiere crear? " + ColorText.cleanse);
+        System.out.println("\t" + ColorText.bold + ColorText.bGrey + ColorText.black
+                + " ¿Qué tipo de mascota quiere crear? " + ColorText.cleanse);
         System.out.println("\n\t\t" + ColorText.bold + "1) Conejo \n\t\t2) Gato \n\t\t3) Pájaro" + ColorText.cleanse);
         leerOpcion();
         clear();
         switch (opcion) {
             case 1:
                 System.out.println("\tEn breves tendremos a su Conejo listo, pero primero... " +
-                        "\n\t" + ColorText.bold + ColorText.bGrey + ColorText.black + " ¿Qué nombre quieres ponerle?: " + ColorText.cleanse);
+                        "\n\t" + ColorText.bold + ColorText.bGrey + ColorText.black + " ¿Qué nombre quieres ponerle?: "
+                        + ColorText.cleanse);
                 String nombreConejo = leerNombre();
                 Conejo pet = new Conejo(nombreConejo);
                 Main.mascotasDisponibles[posicion - 1] = pet;
                 break;
             case 2:
                 System.out.println("\tEn breves tendremos a su Gato listo, pero primero... " +
-                        "\n\t" + ColorText.bold + ColorText.bGrey + ColorText.black + " ¿Qué nombre quieres ponerle?: " + ColorText.cleanse);
+                        "\n\t" + ColorText.bold + ColorText.bGrey + ColorText.black + " ¿Qué nombre quieres ponerle?: "
+                        + ColorText.cleanse);
                 String nombreGato = leerNombre();
                 Gato pet2 = new Gato(nombreGato);
                 Main.mascotasDisponibles[posicion - 1] = pet2;
                 break;
             case 3:
                 System.out.println("\tEn breves tendremos a su Pajaro listo, pero primero... " +
-                        "\n\t" + ColorText.bold + ColorText.bGrey + ColorText.black + " ¿Qué nombre quieres ponerle?: " + ColorText.cleanse);
+                        "\n\t" + ColorText.bold + ColorText.bGrey + ColorText.black + " ¿Qué nombre quieres ponerle?: "
+                        + ColorText.cleanse);
                 String nombrePajaro = leerNombre();
                 Pajaro pet3 = new Pajaro(nombrePajaro);
                 Main.mascotasDisponibles[posicion - 1] = pet3;
@@ -164,14 +186,16 @@ public class Menu {
     public void menuEleccionJugar() {
         Mascota pet = Main.mascotasDisponibles[posicion - 1];
         clear();
-        System.out.println("\t" + ColorText.bold + ColorText.bGreen + ColorText.black + " Su mascota " + pet.getNombre() + " ha sido creada correctamente " + ColorText.cleanse +
+        System.out.println("\t" + ColorText.bold + ColorText.bGreen + ColorText.black + " Su mascota " + pet.getNombre()
+                + " ha sido creada correctamente " + ColorText.cleanse +
                 "\n\t¿Desea comenzar la partida?" + ColorText.bold +
                 "\n\n\t\t1) Comenzar partida " +
                 "\n\t\t2) " + ColorText.blue + "Volver al menú principal" + ColorText.cleanse);
         do {
             leerOpcion();
             if (opcion != 1 && opcion != 2) {
-                System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " Opcion no valida, por favor introduzca un valor entre (1-2): " + ColorText.cleanse);
+                System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black
+                        + " Opcion no valida, por favor introduzca un valor entre (1-2): " + ColorText.cleanse);
             }
         } while (opcion != 1 && opcion != 2);
         clear();
@@ -186,7 +210,9 @@ public class Menu {
             try {
                 opcion = sc.nextInt();
             } catch (InputMismatchException ime) {
-                System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " Solo se admiten valores enteros, por favor introduzca un valor correcto: " + ColorText.cleanse);
+                System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black
+                        + " Solo se admiten valores enteros, por favor introduzca un valor correcto: "
+                        + ColorText.cleanse);
             }
             sc.nextLine();
 
@@ -199,11 +225,14 @@ public class Menu {
             try {
                 posicion = sc.nextInt();
                 if (posicion > Main.mascotasDisponibles.length || posicion < 0) {
-                    System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " Espacio no existente. Seleccione un espacio entre (1 - 3): " + ColorText.cleanse);
+                    System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black
+                            + " Espacio no existente. Seleccione un espacio entre (1 - 3): " + ColorText.cleanse);
                 }
 
             } catch (InputMismatchException ime) {
-                System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " Solo se admiten valores enteros, por favor introduzca un valor correcto: " + ColorText.cleanse);
+                System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black
+                        + " Solo se admiten valores enteros, por favor introduzca un valor correcto: "
+                        + ColorText.cleanse);
             }
             sc.nextLine();
 
@@ -218,9 +247,14 @@ public class Menu {
     public void menuPartida() {
         Mascota pet = Main.mascotasDisponibles[posicion - 1];
         if (pet.isSalud()) {
-            System.out.println("\n\t" + ColorText.bold + ColorText.bBlue + ColorText.black + " (1) Alimentar\t(2) Bañar\t(3) Jugar\t" + ColorText.cleanse + ColorText.bold + ColorText.bBlue + "(0) Salir " + ColorText.cleanse);
+            System.out.println("\n\t" + ColorText.bold + ColorText.bBlue + ColorText.black
+                    + " (1) Alimentar  (2) Bañar  (3) Jugar " + ColorText.cleanse + ColorText.bold + ColorText.bBlue
+                    + " (0) Salir " + ColorText.cleanse);
         } else {
-            System.out.println("\n\t" + ColorText.bold + ColorText.bBlue + ColorText.black + " (1) Alimentar\t(2) Bañar\t(3) Jugar\t" + ColorText.bold + ColorText.bGreen + ColorText.black + "(4) Curar\t" + ColorText.cleanse + ColorText.bold + ColorText.bBlue + "(0) Salir " + ColorText.cleanse);
+            System.out.println("\n\t" + ColorText.bold + ColorText.bBlue + ColorText.black
+                    + " (1) Alimentar  (2) Bañar  (3) Jugar " + ColorText.bold + ColorText.bGreen + ColorText.black
+                    + " (4) Curar " + ColorText.cleanse + ColorText.bold + ColorText.bBlue + " (0) Salir "
+                    + ColorText.cleanse);
         }
         leerOpcion();
         switch (opcion) {
@@ -237,14 +271,17 @@ public class Menu {
                 if (!pet.isSalud()) {
                     pet.curar();
                 } else {
-                    System.out.println("\t" + ColorText.bold + ColorText.bGreen + ColorText.black + " Su mascota ya está sana " + ColorText.cleanse);
+                    System.out.println("\t" + ColorText.bold + ColorText.bGreen + ColorText.black
+                            + " Su mascota ya está sana " + ColorText.cleanse);
                 }
                 break;
             case 0:
-                System.out.println("\t" + ColorText.bold + ColorText.bBlue + ColorText.black + " > PARTIDA FINALIZADA < " + ColorText.cleanse);
+                System.out.println("\t" + ColorText.bold + ColorText.bBlue + ColorText.black
+                        + " > PARTIDA FINALIZADA < " + ColorText.cleanse);
                 break;
             default:
-                System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " Opción no disponible " + ColorText.cleanse);
+                System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " Opción no disponible "
+                        + ColorText.cleanse);
                 break;
 
         }
@@ -252,7 +289,8 @@ public class Menu {
     }
 
     public void menuCargarPartida() {
-        System.out.println("\t██    " + ColorText.blue + "██       ██████   █████  ██████" + ColorText.cleanse + "     ██ \n" +
+        System.out.println("\t██    " + ColorText.blue + "██       ██████   █████  ██████" + ColorText.cleanse
+                + "     ██ \n" +
                 "\t ██   " + ColorText.blue + "██      ██    ██ ██   ██ ██   ██" + ColorText.cleanse + "   ██  \n" +
                 "\t  ██  " + ColorText.blue + "██      ██    ██ ███████ ██   ██" + ColorText.cleanse + "  ██   \n" +
                 "\t ██   " + ColorText.blue + "██      ██    ██ ██   ██ ██   ██" + ColorText.cleanse + "   ██  \n" +
@@ -264,9 +302,11 @@ public class Menu {
             int i = 1;
             for (Mascota m : Main.mascotasDisponibles) {
                 if (m == null) {
-                    System.out.println("\t\t" + ColorText.bold + i++ + ") " + ColorText.green + "Crear partida nueva" + ColorText.cleanse);
+                    System.out.println("\t\t" + ColorText.bold + i++ + ") " + ColorText.green + "Crear partida nueva"
+                            + ColorText.cleanse);
                 } else {
-                    System.out.println("\t\t" + ColorText.bold + i++ + ") " + m.tipoMascota() + ", " + m.getNombre() + ", " + m.getEdad() + " Dias" + ColorText.cleanse);
+                    System.out.println("\t\t" + ColorText.bold + i++ + ") " + m.tipoMascota() + ", " + m.getNombre()
+                            + ", " + m.getEdad() + " Dias" + ColorText.cleanse);
 
                 }
             }
@@ -278,7 +318,9 @@ public class Menu {
 
                 if (Main.mascotasDisponibles[posicion - 1] == null) {
 
-                    System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " El espacio elegido no tiene una mascota creada, si acepta se creará una nueva mascota " + ColorText.cleanse +
+                    System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black
+                            + " El espacio elegido no tiene una mascota creada, si acepta se creará una nueva mascota "
+                            + ColorText.cleanse +
                             "\n\n\t¿Desea crear la mascota? " +
                             "\n\n\t\t" + ColorText.bold + "1) " + ColorText.red + "Crear mascota " + ColorText.cleanse +
                             "\n\t\t" + ColorText.bold + "2) " + ColorText.blue + "Volver atrás" + ColorText.cleanse);
@@ -286,7 +328,9 @@ public class Menu {
                     do {
                         leerOpcion();
                         if (opcion != 1 && opcion != 2) {
-                            System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " Opcion no valida, por favor introduzca un valor entre (1-2): " + ColorText.cleanse);
+                            System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black
+                                    + " Opcion no valida, por favor introduzca un valor entre (1-2): "
+                                    + ColorText.cleanse);
                         }
                     } while (opcion != 1 && opcion != 2);
                     clear();

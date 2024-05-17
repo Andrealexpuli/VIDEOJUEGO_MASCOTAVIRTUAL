@@ -10,7 +10,6 @@ public class Pajaro extends Mascota {
         super(nombre);
     }
 
-
     @Override
     public void alimentar() {
 
@@ -20,13 +19,15 @@ public class Pajaro extends Mascota {
             setAlimentacion(getAlimentacion() + 10);
             setHigiene(getHigiene() - 5);
             Menu.clear();
-            System.out.println("\t"+ColorText.bold+ColorText.bGreen+ColorText.black+" "+getNombre() + " ha comido "+ColorText.cleanse);
+            System.out.println("\t" + ColorText.bold + ColorText.bGreen + ColorText.black + " " + getNombre()
+                    + " ha comido " + ColorText.cleanse);
             aumentarContadorAlimentar();
         } else {
             Menu.clear();
-            System.out.println("\t"+ColorText.bold+ColorText.bRed+ColorText.black+" "+getNombre() + " no quiere comer "+ColorText.cleanse);
-            System.out.println("\n\t\t  __\n" +
-                    "\t\t (-,-)\n" +
+            System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " " + getNombre()
+                    + " no quiere comer " + ColorText.cleanse);
+            System.out.println("\n\t\t  ___\n" +
+                    "\t\t (-,-) ?\n" +
                     "\t\t /)__)\n" +
                     "\t\t -\\\"-\\\"-");
         }
@@ -43,13 +44,15 @@ public class Pajaro extends Mascota {
             setHigiene(getHigiene() + 10);
             setAnimo(getAnimo() - 5);
             Menu.clear();
-            System.out.println("\t"+ColorText.bold+ColorText.bGreen+ColorText.black+" "+getNombre() + " se ha bañado "+ColorText.cleanse);
+            System.out.println("\t" + ColorText.bold + ColorText.bGreen + ColorText.black + " " + getNombre()
+                    + " se ha bañado " + ColorText.cleanse);
             aumentarContadorLimpiar();
         } else {
             Menu.clear();
-            System.out.println("\t"+ColorText.bold+ColorText.bRed+ColorText.black+" "+getNombre() + " no quiere bañarse "+ColorText.cleanse);
-            System.out.println("\n\t\t  __\n" +
-                    "\t\t (-,-)\n" +
+            System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " " + getNombre()
+                    + " no quiere bañarse " + ColorText.cleanse);
+            System.out.println("\n\t\t  ___\n" +
+                    "\t\t (-,-) ?\n" +
                     "\t\t /)__)\n" +
                     "\t\t -\\\"-\\\"-");
         }
@@ -65,13 +68,15 @@ public class Pajaro extends Mascota {
             setAlimentacion(getAlimentacion() - 5);
             setAnimo(getAnimo() + 10);
             Menu.clear();
-            System.out.println("\t"+ColorText.bold+ColorText.bGreen+ColorText.black+" "+getNombre() + " ha jugado "+ColorText.cleanse);
+            System.out.println("\t" + ColorText.bold + ColorText.bGreen + ColorText.black + " " + getNombre()
+                    + " ha jugado " + ColorText.cleanse);
             aumentarContadorJugar();
         } else {
             Menu.clear();
-            System.out.println("\t"+ColorText.bold+ColorText.bRed+ColorText.black+" "+getNombre() + " no quiere jugar "+ColorText.cleanse);
-            System.out.println("\n\t\t  __\n" +
-                    "\t\t (-,-)\n" +
+            System.out.println("\t" + ColorText.bold + ColorText.bRed + ColorText.black + " " + getNombre()
+                    + " no quiere jugar " + ColorText.cleanse);
+            System.out.println("\n\t\t  ___\n" +
+                    "\t\t (-,-) ?\n" +
                     "\t\t /)__)\n" +
                     "\t\t -\\\"-\\\"-");
         }
@@ -80,7 +85,7 @@ public class Pajaro extends Mascota {
 
     @Override
     public void salud() {
-        int suerte = rdm.nextInt(0, 7);
+        int suerte = rdm.nextInt(0, 6);
         if (isSalud() && suerte == 0) {
             setSalud(false);
         }
@@ -91,24 +96,24 @@ public class Pajaro extends Mascota {
     public void imprimirModelo() {
         if (!isDormido()) {
             if (!isSalud()) {
-                System.out.println("\t\t  __\n" +
+                System.out.println("\t\t  ___\n" +
                         "\t\t (x,x)\n" +
                         "\t\t /)__)\n" +
                         "\t\t -\\\"-\\\"-\n");
             } else {
 
                 if (getAlimentacion() > 80 && getAnimo() > 80 && getHigiene() > 80) {
-                    System.out.println("\t\t  __\n" +
+                    System.out.println("\t\t  ___\n" +
                             "\t\t (^,^)\n" +
                             "\t\t /)__)\n" +
                             "\t\t -\\\"-\\\"-\n");
                 } else if (getAlimentacion() > 45 && getAnimo() > 45 && getHigiene() > 45) {
-                    System.out.println("\t\t  __\n" +
+                    System.out.println("\t\t  ___\n" +
                             "\t\t (o,o)\n" +
                             "\t\t /)__)\n" +
                             "\t\t -\\\"-\\\"-\n");
                 } else {
-                    System.out.println("\t\t  __\n" +
+                    System.out.println("\t\t  ___\n" +
                             "\t\t (>,<)\n" +
                             "\t\t /)__)\n" +
                             "\t\t -\\\"-\\\"-\n");
@@ -116,14 +121,14 @@ public class Pajaro extends Mascota {
             }
 
         } else {
-            System.out.println("\t\t   _\n" +
-                    "\t\t  ( -,-) zzz\n" +
-                    "\t\t  / )  )\n" +
+            System.out.println("\t\t   ___\n" +
+                    "\t\t  (-,-) zZzZz\n" +
+                    "\t\t  / ) )\n" +
                     "\t\t /-\"\"-\\");
-
 
         }
     }
+
     @Override
     public String tipoMascota() {
         return "Pajaro";

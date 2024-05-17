@@ -9,7 +9,6 @@ public class Main {
     public static Menu menu = new Menu();
     public static ArrayList<Mascota> mascotasEstadisticas = new ArrayList<>();
 
-
     public static void main(String[] args) {
         String salir = "no";
         pantallaInicial();
@@ -20,36 +19,44 @@ public class Main {
 
     public static void pantallaInicial() {
         Menu.clear();
-        System.out.println("\t██    "+ColorText.pink+"██████  ███████ ████████"+ColorText.green+" ██    ██ ██ ██      ██      ███████ "+ColorText.cleanse+"   ██ \n" +
-                "\t ██   "+ColorText.pink+"██   ██ ██         ██  "+ColorText.green+"  ██    ██ ██ ██      ██      ██      "+ColorText.cleanse+"  ██  \n" +
-                "\t  ██  "+ColorText.pink+"██████  █████      ██   "+ColorText.green+" ██    ██ ██ ██      ██      █████   "+ColorText.cleanse+" ██   \n" +
-                "\t ██   "+ColorText.pink+"██      ██         ██   "+ColorText.green+"  ██  ██  ██ ██      ██      ██      "+ColorText.cleanse+"  ██  \n" +
-                "\t██    "+ColorText.pink+"██      ███████    ██   "+ColorText.green+"   ████   ██ ███████ ███████ ███████ "+ColorText.cleanse+"   ██ ");
+        System.out.println("\t██    " + ColorText.pink + "██████  ███████ ████████" + ColorText.green
+                + " ██    ██ ██ ██      ██      ███████ " + ColorText.cleanse + "   ██ \n" +
+                "\t ██   " + ColorText.pink + "██   ██ ██         ██  " + ColorText.green
+                + "  ██    ██ ██ ██      ██      ██      " + ColorText.cleanse + "  ██  \n" +
+                "\t  ██  " + ColorText.pink + "██████  █████      ██   " + ColorText.green
+                + " ██    ██ ██ ██      ██      █████   " + ColorText.cleanse + " ██   \n" +
+                "\t ██   " + ColorText.pink + "██      ██         ██   " + ColorText.green
+                + "  ██  ██  ██ ██      ██      ██      " + ColorText.cleanse + "  ██  \n" +
+                "\t██    " + ColorText.pink + "██      ███████    ██   " + ColorText.green
+                + "   ████   ██ ███████ ███████ ███████ " + ColorText.cleanse + "   ██ ");
         System.out.println("\n\n\t!SALUDOS JUGADOR!" +
                 "\n\tMe complace invitarle a PetVille el vibrante mundo de mascotas virtuales\n");
-        System.out.println("\n\t"+ColorText.bold + ColorText.bBlue+ ColorText.black+" Por favor pulse cualquier tecla para comenzar "+ColorText.cleanse);
+        System.out.println("\n\t" + ColorText.bold + ColorText.bBlue + ColorText.black
+                + " Por favor pulse cualquier tecla para comenzar " + ColorText.cleanse);
         sc.nextLine();
     }
 
     public static void partida() {
         Mascota pet = mascotasDisponibles[menu.getPosicion() - 1];
 
-        System.out.println("\n\t"+ColorText.bold + ColorText.green+"¡ENHORABUENA! \n\t"
-                 + pet.getNombre() + " ya se encuentra en PetVille lista para ser cuidada \n\t"+
-                 "!MUCHA SUERTE! "+ColorText.cleanse+"\n");
+        System.out.println("\n\t" + ColorText.bold + ColorText.green + "¡ENHORABUENA! \n\t"
+                + pet.getNombre() + " ya se encuentra en PetVille lista para ser cuidada \n\t" +
+                "!MUCHA SUERTE! " + ColorText.cleanse + "\n");
         do {
             int i = 0;
             pet.setDormido(false);
             pet.crecer();
             do {
-                System.out.println("\n\t"+ColorText.bold+ColorText.blue+"---------------------------------------------------------------"+ColorText.cleanse);
-                System.out.println("\t"+ColorText.bold+ColorText.blue+" >> DIA: " + pet.getEdad() + " <<                              "+ColorText.cleanse);
-                System.out.println("\t"+ColorText.bold+ColorText.blue+"---------------------------------------------------------------"+ColorText.cleanse+"\n");
+                System.out.println("\n\t" + ColorText.bold + ColorText.blue
+                        + "--------------------------------------------------------" + ColorText.cleanse);
+                System.out.println("\t" + ColorText.bold + ColorText.blue + " >> DIA: " + pet.getEdad()
+                        + " <<                              " + ColorText.cleanse);
+                System.out.println("\t" + ColorText.bold + ColorText.blue
+                        + "--------------------------------------------------------" + ColorText.cleanse + "\n");
 
                 pet.comprobarStats();
                 pet.imprimirModelo();
                 pet.avisos();
-                pet.status();
                 menu.menuPartida();
                 pet.comprobarStats();
                 i++;
@@ -66,17 +73,30 @@ public class Main {
         } while (pet.isVida() && menu.getOpcion() != 0);
         guardarMascotaEliminada(pet);
         if (!pet.isVida()) {
+            System.out.println("\n\n\n\n\t" + ColorText.bold + ColorText.bRed + ColorText.black + " Tristemente " + pet.getNombre()
+                    + " no fue capaz de superar el día "+pet.getEdad() +" "+ ColorText.cleanse);
 
-            System.out.println("\n\t██     "+ColorText.red+"██████   █████  ███    ███ ███████      ██████  ██    ██ ███████ ██████"+ColorText.cleanse+"     ██ \n" +
-                    "\t ██   "+ColorText.red+"██       ██   ██ ████  ████ ██          ██    ██ ██    ██ ██      ██   ██"+ColorText.cleanse+"   ██  \n" +
-                    "\t  ██  "+ColorText.red+"██   ███ ███████ ██ ████ ██ █████       ██    ██ ██    ██ █████   ██████"+ColorText.cleanse+"   ██   \n" +
-                    "\t ██   "+ColorText.red+"██    ██ ██   ██ ██  ██  ██ ██          ██    ██  ██  ██  ██      ██   ██"+ColorText.cleanse+"   ██  \n" +
-                    "\t██     "+ColorText.red+"██████  ██   ██ ██      ██ ███████      ██████    ████   ███████ ██   ██"+ColorText.cleanse+"    ██ \n");
-            System.out.println("\n\t"+ColorText.bold + ColorText.bBlue+ ColorText.black+" Por favor pulse cualquier tecla para volver al menu principal "+ColorText.cleanse);
+            System.out.println("\n\n\t██     " + ColorText.red
+                    + "██████   █████  ███    ███ ███████      ██████  ██    ██ ███████ ██████" + ColorText.cleanse
+                    + "     ██ \n" +
+                    "\t ██   " + ColorText.red
+                    + "██       ██   ██ ████  ████ ██          ██    ██ ██    ██ ██      ██   ██" + ColorText.cleanse
+                    + "   ██  \n" +
+                    "\t  ██  " + ColorText.red
+                    + "██   ███ ███████ ██ ████ ██ █████       ██    ██ ██    ██ █████   ██████" + ColorText.cleanse
+                    + "   ██   \n" +
+                    "\t ██   " + ColorText.red
+                    + "██    ██ ██   ██ ██  ██  ██ ██          ██    ██  ██  ██  ██      ██   ██" + ColorText.cleanse
+                    + "   ██  \n" +
+                    "\t██     " + ColorText.red
+                    + "██████  ██   ██ ██      ██ ███████      ██████    ████   ███████ ██   ██" + ColorText.cleanse
+                    + "    ██ \n");
+            System.out.println("\n\t" + ColorText.bold + ColorText.bBlue + ColorText.black
+                    + " Por favor pulse cualquier tecla para volver al menu principal " + ColorText.cleanse);
             sc.nextLine();
+
         }
     }
-
 
     public static void guardarMascotaEliminada(Mascota pet) {
         if (!pet.isVida()) {
@@ -109,11 +129,16 @@ public class Main {
 
     public static void imprimirFicheroEstadisticas() {
         Menu.clear();
-        System.out.println("\n\t██    "+ColorText.blue+"███████  ██████  ██████  ██████  ███████"+ColorText.cleanse+"    ██ \n" +
-                "\t ██   "+ColorText.blue+"██      ██      ██    ██ ██   ██ ██"+ColorText.cleanse+"        ██  \n" +
-                "\t  ██  "+ColorText.blue+"███████ ██      ██    ██ ██████  █████"+ColorText.cleanse+"    ██   \n" +
-                "\t ██        "+ColorText.blue+"██ ██      ██    ██ ██   ██ ██"+ColorText.cleanse+"        ██  \n" +
-                "\t██    "+ColorText.blue+"███████  ██████  ██████  ██   ██ ███████ "+ColorText.cleanse+"   ██");
+        System.out.println("\n\t██    " + ColorText.blue + "███████  ██████  ██████  ██████  ███████"
+                + ColorText.cleanse + "    ██ \n" +
+                "\t ██   " + ColorText.blue + "██      ██      ██    ██ ██   ██ ██" + ColorText.cleanse
+                + "        ██  \n" +
+                "\t  ██  " + ColorText.blue + "███████ ██      ██    ██ ██████  █████" + ColorText.cleanse
+                + "    ██   \n" +
+                "\t ██        " + ColorText.blue + "██ ██      ██    ██ ██   ██ ██" + ColorText.cleanse
+                + "        ██  \n" +
+                "\t██    " + ColorText.blue + "███████  ██████  ██████  ██   ██ ███████ " + ColorText.cleanse
+                + "   ██");
         try {
             File archivo = new File("Estadisticas.txt");
             Scanner lector = new Scanner(archivo);
@@ -129,10 +154,12 @@ public class Main {
         } catch (FileNotFoundException fnfe) {
             System.out.println(fnfe.getMessage());
         } catch (NoSuchElementException nsee) {
-            System.out.println("\t"+ColorText.bold + ColorText.bYellow+ ColorText.black+" > No hay más estadísticas < "+ColorText.cleanse);
+            System.out.println("\t" + ColorText.bold + ColorText.bYellow + ColorText.black
+                    + " > No hay más estadísticas < " + ColorText.cleanse);
         }
 
-        System.out.println("\n\t"+ColorText.bold + ColorText.bBlue+ ColorText.black+" Por favor pulse cualquier tecla para volver al menu principal "+ColorText.cleanse);
+        System.out.println("\n\t" + ColorText.bold + ColorText.bBlue + ColorText.black
+                + " Por favor pulse cualquier tecla para volver al menu principal " + ColorText.cleanse);
         sc.nextLine();
     }
 
@@ -140,6 +167,8 @@ public class Main {
 
 class EstadisticasVacias extends Exception {
     public EstadisticasVacias() {
-        super("\n\t"+ColorText.bold + ColorText.bYellow+ ColorText.black+" Aun no has perdido ninguna partida, cuando lo hagas vuelve para ver sus estadisticas :D "+ColorText.cleanse);
+        super("\n\t" + ColorText.bold + ColorText.bYellow + ColorText.black
+                + " Aun no has perdido ninguna partida, cuando lo hagas vuelve para ver sus estadisticas :D "
+                + ColorText.cleanse);
     }
 }

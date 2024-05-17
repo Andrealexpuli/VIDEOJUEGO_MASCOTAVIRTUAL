@@ -1,48 +1,73 @@
 
-Nombre: Herhwrh
-Dias Sobrevividos: 7
-Dias enferma: 4
-Veces que ha comido: 0
-Veces que ha jugado: 6
-Veces que se ha bañado: 0
---------------------------------------
-Tipo:Gato
-Nombre: Ramon
-Dias Sobrevividos: 10
-Dias enferma: 4
-Veces que ha comido: 0
-Veces que ha jugado: 1
-Veces que se ha bañado: 1
---------------------------------------
-Tipo:Conejo
-Nombre: Prueba
-Dias Sobrevividos: 8
-Dias enferma: 2
-Veces que ha comido: 0
-Veces que ha jugado: 5
-Veces que se ha bañado: 0
---------------------------------------
-Tipo: Conejo
-Nombre: Grhh
-Dias Sobrevividos: 8
-Dias enferma: 4
-Veces que ha comido: 0
-Veces que ha jugado: 4
-Veces que se ha bañado: 0
---------------------------------------
-Tipo: Conejo
-Nombre: Hrwh
-Dias Sobrevividos: 7
-Dias enferma: 3
-Veces que ha comido: 0
-Veces que ha jugado: 4
-Veces que se ha bañado: 2
---------------------------------------
-Tipo: Conejo
-Nombre: Ee
-Dias Sobrevividos: 8
-Dias enferma: 4
-Veces que ha comido: 0
-Veces que ha jugado: 5
-Veces que se ha bañado: 3
---------------------------------------
+	Tipo: Conejo
+	Nombre: Rosita
+	Dias Sobrevividos: 11
+	Dias enferma: 3
+	Veces que ha comido: 5
+	Veces que ha jugado: 5
+	Veces que se ha bañado: 3
+	--------------------------------------
+	Tipo: Conejo
+	Nombre: Rosita
+	Dias Sobrevividos: 10
+	Dias enferma: 5
+	Veces que ha comido: 3
+	Veces que ha jugado: 6
+	Veces que se ha bañado: 5
+	--------------------------------------
+	Tipo: Conejo
+	Nombre: Rosita
+	Dias Sobrevividos: 9
+	Dias enferma: 7
+	Veces que ha comido: 0
+	Veces que ha jugado: 5
+	Veces que se ha bañado: 0
+	--------------------------------------
+	Tipo: Conejo
+	Nombre: Fe
+	Dias Sobrevividos: 9
+	Dias enferma: 5
+	Veces que ha comido: 0
+	Veces que ha jugado: 5
+	Veces que se ha bañado: 1
+	--------------------------------------
+	Tipo: Pajaro
+	Nombre: Rehe
+	Dias Sobrevividos: 8
+	Dias enferma: 6
+	Veces que ha comido: 0
+	Veces que ha jugado: 1
+	Veces que se ha bañado: 5
+	--------------------------------------
+	Tipo: Gato
+	Nombre: Rhreh
+	Dias Sobrevividos: 8
+	Dias enferma: 7
+	Veces que ha comido: 0
+	Veces que ha jugado: 6
+	Veces que se ha bañado: 1
+	--------------------------------------
+	Tipo: Conejo
+	Nombre: 1
+	Dias Sobrevividos: 9
+	Dias enferma: 3
+	Veces que ha comido: 4
+	Veces que ha jugado: 0
+	Veces que se ha bañado: 0
+	--------------------------------------
+	Tipo: Conejo
+	Nombre: Rosita
+	Dias Sobrevividos: 9
+	Dias enferma: 8
+	Veces que ha comido: 5
+	Veces que ha jugado: 0
+	Veces que se ha bañado: 0
+	--------------------------------------
+	Tipo: Conejo
+	Nombre: 1
+	Dias Sobrevividos: 9
+	Dias enferma: 3
+	Veces que ha comido: 5
+	Veces que ha jugado: 0
+	Veces que se ha bañado: 0
+	--------------------------------------
