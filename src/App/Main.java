@@ -1,10 +1,17 @@
 package App;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+
 import Mascotas.*;
 import Utils.*;
+
+/**
+ * @author Andrea Alexandra Pulido de la Serna
+ * Clase Main perteneciente al paquete App.
+ */
 public class Main {
     public static Scanner sc = new Scanner(System.in);
     public static Mascota[] mascotasDisponibles = new Mascota[3];
@@ -19,6 +26,9 @@ public class Main {
         } while (!salir.equalsIgnoreCase("si"));
     }
 
+    /**
+     * muestra un mensaje nada mas iniciar el juego a modo de saludo
+     */
     public static void pantallaInicial() {
         Menu.clear();
         System.out.println("\t██    " + ColorText.pink + "██████  ███████ ████████" + ColorText.green
@@ -38,6 +48,10 @@ public class Main {
         sc.nextLine();
     }
 
+    /**
+     * establece el patron de llamadas de metodos para la partida
+     * muestra mensaje de inicio y de fin de partida
+     */
     public static void partida() {
         Mascota pet = mascotasDisponibles[menu.getPosicion() - 1];
 
@@ -76,7 +90,7 @@ public class Main {
         guardarMascotaEliminada(pet);
         if (!pet.isVida()) {
             System.out.println("\n\n\n\n\t" + ColorText.bold + ColorText.bRed + ColorText.black + " Tristemente " + pet.getNombre()
-                    + " no fue capaz de superar el día "+pet.getEdad() +" "+ ColorText.cleanse);
+                    + " no fue capaz de superar el día " + pet.getEdad() + " " + ColorText.cleanse);
 
             System.out.println("\n\n\t██     " + ColorText.red
                     + "██████   █████  ███    ███ ███████      ██████  ██    ██ ███████ ██████" + ColorText.cleanse
@@ -100,6 +114,11 @@ public class Main {
         }
     }
 
+    /**
+     * guarda la mascota recien jugada y muerta en un arrayList
+     *
+     * @param pet Mascota el objeto mascota de la partida
+     */
     public static void guardarMascotaEliminada(Mascota pet) {
         if (!pet.isVida()) {
             escribirFicheroEstadisticas(pet);
@@ -108,6 +127,11 @@ public class Main {
         }
     }
 
+    /**
+     * escribe las estadisticas de la partida recien perdida en el fichero Estadisticas
+     *
+     * @param pet Mascota de la ultima partida perdida
+     */
     public static void escribirFicheroEstadisticas(Mascota pet) {
         try {
             String filePath = "Estadisticas.txt";
@@ -129,6 +153,9 @@ public class Main {
         }
     }
 
+    /**
+     * imprime el contenido de estadisticas alojado en el fichero Estadisticas
+     */
     public static void imprimirFicheroEstadisticas() {
         Menu.clear();
         System.out.println("\n\t██    " + ColorText.blue + "███████  ██████  ██████  ██████  ███████"
@@ -167,6 +194,10 @@ public class Main {
 
 }
 
+/**
+ * clase que hereda de Excepcion, creada para la ejecucion de una excepcion personal
+ * detecta si el fichero esta vacio e imprime mensaje de aviso
+ */
 class EstadisticasVacias extends Exception {
     public EstadisticasVacias() {
         super("\n\t" + ColorText.bold + ColorText.bYellow + ColorText.black

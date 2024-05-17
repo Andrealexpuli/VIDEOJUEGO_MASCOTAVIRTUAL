@@ -1,34 +1,73 @@
 package Utils;
+
 import Mascotas.*;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 import App.*;
+
+/**
+ * @author Andrea Alexandra Pulido de la Serna
+ * Clase Menu, perteneciente al paquete Utils.
+ */
 public class Menu {
     public static Scanner sc = new Scanner(System.in);
     private int opcion = -1;
     private int posicion = -1;
 
+    /**
+     * Contructor vacio de Menu
+     */
     public Menu() {
     }
 
     ;
 
+    /**
+     * Obtiene la opcion
+     *
+     * @return int con la opcion
+     */
     public int getOpcion() {
         return opcion;
     }
 
+    /**
+     * Establece el valor de opcion
+     *
+     * @param opcion int con el valor de la opcion
+     */
     public void setOpcion(int opcion) {
         this.opcion = opcion;
     }
 
+    /**
+     * Obtiene el valor de la posicion para el Array
+     *
+     * @return int con el valor de la posicion para el Array
+     */
     public int getPosicion() {
         return posicion;
     }
 
+    /**
+     * Establece el valor de la posicion para el Array
+     *
+     * @param posicion int con el valor de la posicion para el Array
+     */
     public void setPosicion(int posicion) {
         this.posicion = posicion;
     }
 
+    /**
+     * menu de inicio
+     * menu principal para navegar por todas las opciones del juego, Nueva partida, Crear partida, ver Estadisticas
+     * muestra los mensajes con las opciones a realizar y llama a los metodos correspondientes para cada eleccion
+     * finaliza el programa cuando el usuario confirma su salida
+     *
+     * @return
+     */
     public String menuInicio() {
         String salir = "no";
 
@@ -89,6 +128,11 @@ public class Menu {
         return salir;
     }
 
+    /**
+     * menu de nueva partida
+     * imprime un mensaje y el contenido de Array con las mascotas guardadas
+     * imprime mensajes de confirmacion para espacios de guardado de las mascotas
+     */
     public void menuCrearMascota() {
         System.out.println("\t██    " + ColorText.blue + "███    ██ ██    ██ ███████ ██    ██  █████"
                 + ColorText.cleanse + "     ██ \n" +
@@ -146,6 +190,11 @@ public class Menu {
 
     }
 
+    /**
+     * instancia el objeto pedido por el usuario (Conejo,Gato,Pajaro), para ello
+     * pide que el jugador determine el tipo de mascota y su nombre, y lo guarda en
+     * la posicion que haya solicitado el jugador para el array
+     */
     public void crearMascota() {
 
         System.out.println("\t" + ColorText.bold + ColorText.bGrey + ColorText.black
@@ -185,6 +234,11 @@ public class Menu {
         }
     }
 
+    /**
+     * menu suplementario a partida nueva
+     * informa al jugador de si quiere jugar con la mascota que recien creo
+     * lleva al jugador a jugar o menu principal, segun su opcion
+     */
     public void menuEleccionJugar() {
         Mascota pet = Main.mascotasDisponibles[posicion - 1];
         clear();
@@ -206,6 +260,10 @@ public class Menu {
         }
     }
 
+    /**
+     * lee la opcion introducida por el usuario
+     * verifica que sea un valor entero
+     */
     public void leerOpcion() {
         opcion = -1;
         do {
@@ -221,6 +279,10 @@ public class Menu {
         } while (opcion == -1);
     }
 
+    /**
+     * lee la posición introducida por el usuario
+     * verifica que el valor sea un entero y este dentro del rango para el array
+     */
     public void leerPosicion() {
 
         do {
@@ -241,11 +303,24 @@ public class Menu {
         } while (posicion > Main.mascotasDisponibles.length || posicion < 0);
     }
 
+    /**
+     * lee el nombre que el usuario teclee para su pet
+     * modifica el texto para que la primera letra sea en mayuscula y el resto en minuscula
+     * independientemente de como lo haya introducido el jugador
+     *
+     * @return String con el nombre reformateado
+     */
     public String leerNombre() {
         String nombre = sc.nextLine();
         return nombre.substring(0, 1).toUpperCase() + nombre.substring(1).toLowerCase();
     }
 
+    /**
+     * menu de la Partida (HUB)
+     * muestra las acciones posibles que puede hacer la mascota en la partida
+     * las opciones cambian según el estado de la salud de la mascota, agrega la accion curar si esta enferma
+     * llama a los metodos de las mascotas para realizar la accion selecionada por el jugador
+     */
     public void menuPartida() {
         Mascota pet = Main.mascotasDisponibles[posicion - 1];
         if (pet.isSalud()) {
@@ -290,6 +365,12 @@ public class Menu {
 
     }
 
+    /**
+     * menu para cargar una partida creada con anterioridad
+     * muestra el array con las partidas ya creadas
+     * da la oportunidad de crear una nueva partida si el hueco seleccionado esta vacio
+     * imprime mensajes de avisos
+     */
     public void menuCargarPartida() {
         System.out.println("\t██    " + ColorText.blue + "██       ██████   █████  ██████" + ColorText.cleanse
                 + "     ██ \n" +
@@ -348,6 +429,10 @@ public class Menu {
 
     }
 
+    /**
+     * limpia la pantalla, realiza 50 saltos de linea para subir el contenido de la consola
+     * su uso es de maquetación para el videojuego por consola
+     */
     public static void clear() {
         for (int i = 0; i < 50; i++)
             System.out.println();
