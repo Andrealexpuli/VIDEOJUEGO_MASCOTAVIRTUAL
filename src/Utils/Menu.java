@@ -1,6 +1,8 @@
+package Utils;
+import Mascotas.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+import App.*;
 public class Menu {
     public static Scanner sc = new Scanner(System.in);
     private int opcion = -1;

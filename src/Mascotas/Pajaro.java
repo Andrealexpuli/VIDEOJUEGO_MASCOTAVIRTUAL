@@ -1,4 +1,6 @@
+package Mascotas;
 import java.util.Random;
+import Utils.*;
 
 public class Pajaro extends Mascota {
     public static Random rdm = new Random();

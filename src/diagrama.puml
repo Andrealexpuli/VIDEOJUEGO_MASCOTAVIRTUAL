@@ -1,0 +1,129 @@
+@startuml
+
+package "Mascotas" #DDDDDD {
+    abstract class Mascota {
+        - nombre : String
+        - edad : int
+        - salud : boolean
+        - vida : boolean
+        - curado : boolean
+        - dormido : boolean
+        - alimentación : int
+        - higiene : int
+        - animo : int
+        - contadorJugar : int
+        - contadorAlimentar: int
+        - contadorLimpiar : int
+        - contadorEnferma : int
+        + String toString()
+        + void curar()
+        + void crecer()
+        + void aumentarContadorJugar()
+        + void aumentarContadorLimpiar()
+        + void aumentarContadorAlimentar()
+        + void aumentarContadorEnfermo()
+        + void avisos()
+        + void comprobarStat()
+        + void dormir()
+        + {abstract} void alimentar()
+        + {abstract} void limpiar()
+        + {abstract} void jugar()
+        + {abstract} void salud()
+        + {abstract} void imprimirModelo()
+        + {abstract} String tipoMascota()
+    }
+
+    class Conejo {
+        + void alimentar()
+        + void jugar()
+        + void salud()
+        + void imprimirModelo()
+        + String tipoMascota()
+    }
+
+    class Gato {
+        + void alimentar()
+        + void jugar()
+        + void salud()
+        + void imprimirModelo()
+        + String tipoMascota()
+    }
+
+    class Pajaro {
+        + void alimentar()
+        + void jugar()
+        + void salud()
+        + void imprimirModelo()
+        + String tipoMascota()
+    }
+
+    Mascota <|-- Conejo
+    Mascota <|-- Gato
+    Mascota <|-- Pajaro
+}
+
+package "App" #FFD000 {
+    class Main {
+        + {static} mascotasDisponibles : Mascota[]
+        + {static} mascotasEstadisticas : ArrayList<Mascota>
+        + {static} void main(String[])
+        + {static} void pantallaInicial()
+        + {static} void partida()
+        + {static} void guardarMascotaEliminada(Mascota)
+        + {static} void escribirFicheroEstadisticas(Mascota)
+        + {static} void imprimirFicheroEstadisticas()
+    }
+}
+
+package "Util" #FF00B1 {
+    class ColorTexto {
+        + {static} String bold
+        + {static} String cleanse
+        + {static} String black
+        + {static} String red
+        + {static} String green
+        + {static} String yellow
+        + {static} String blue
+        + {static} String pink
+        + {static} String lightBlue
+        + {static} String white
+        + {static} String bRed
+        + {static} String bGreen
+        + {static} String bYellow
+        + {static} String bBlue
+        + {static} String bPink
+        + {static} String bLightBlue
+        + {static} String bGrey
+    }
+
+    class Menu {
+        - opcion : int
+        - posicion : int
+        - arrayDatos : int[]
+        + String menuInicio()
+        + void menuCrearMascota()
+        + void crearMascota()
+        + void menuEleccionJugar()
+        + void leerOpcion()
+        + void leerPosicion()
+        + String leerNombre()
+        + void menuPartida()
+        + void menuCargarPartida()
+        + {static} void clear()
+    }
+}
+
+Main --> Mascota : uses
+
+Main ..> Menu : uses
+Menu --> Main :  uses
+
+
+Main ..> ColorTexto : uses
+Menu ..> ColorTexto : uses
+Mascota ..> ColorTexto : uses
+Conejo ..> ColorTexto : uses
+Gato ..> ColorTexto : uses
+Pajaro ..> ColorTexto : uses
+
+@enduml

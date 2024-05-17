@@ -1,8 +1,10 @@
+package App;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-
+import Mascotas.*;
+import Utils.*;
 public class Main {
     public static Scanner sc = new Scanner(System.in);
     public static Mascota[] mascotasDisponibles = new Mascota[3];
